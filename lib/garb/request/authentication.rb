@@ -41,6 +41,7 @@ module Garb
 
       def build_request
         post = Net::HTTP::Post.new(uri.path)
+        post['user-agent'] = Garb.user_agent unless Garb.user_agent.nil?
         post.set_form_data(parameters)
         post
       end
